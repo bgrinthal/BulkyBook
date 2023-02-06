@@ -4,6 +4,7 @@ using System.Diagnostics;
 
 namespace BulkyBookWeb.Controllers
 {
+    // impliments base class of controller
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -13,6 +14,7 @@ namespace BulkyBookWeb.Controllers
             _logger = logger;
         }
 
+        // Actions methods
         public IActionResult Index()
         {
             return View();
