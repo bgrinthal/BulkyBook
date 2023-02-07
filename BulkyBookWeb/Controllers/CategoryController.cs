@@ -35,7 +35,13 @@ namespace BulkyBookWeb.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Category obj)
         {
-            // checks if entered info aligns with checks in the model
+            // checks if name is equal to display order, and displays a custom error if true
+            if(obj.Name == obj.DisplayOrder.ToString())
+            {
+                // calling the error "name" adds it to the model property of "Name"
+                ModelState.AddModelError("name", "The DisplayOrder cannot exactly match the Name.");
+            }
+            // checks if entered info aligns with checks (such as [Required]) in the model
             if (ModelState.IsValid) 
             {
                 // connects to db, and adds category object

@@ -6,6 +6,8 @@
             <h2 class="text-primary">Create Category</h2>
             <hr />
         </div>
+        <!-- tag helper asp-for shows all validation errors in the div it is created in -->
+        <div asp-validation-summary="All"></div>
         <div class="mb-3">
             <!-- tag helper asp-for allows us to use/display properties from out model -->
             <!-- this will display "Name" on your page as displayed in the model  -->
