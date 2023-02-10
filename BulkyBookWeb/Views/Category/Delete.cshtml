@@ -1,0 +1,40 @@
+﻿@model Category
+
+<form method="post" asp-action="DeletePOST">
+    <!-- because model field must be disabled, must add below ling to pass Id into controller for deletePOST -->
+    <input asp-for="Id" hidden />
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Delete Category</h2>
+            <hr />
+        </div>
+        <!-- tag helper asp-for shows all validation errors in the div it is created in -->
+        <!-- <div asp-validation-summary="All"></div> -->
+        <div class="mb-3">
+            <!-- tag helper asp-for allows us to use/display properties from out model -->
+            <!-- this will display "Name" on your page as displayed in the model  -->
+            <label asp-for="Name"></label>
+            <!-- so this will post an object of Category with "Name" populated  -->
+            <input asp-for="Name" disabled class="form-control" />
+        </div>
+        <div class="mb-3">
+            <!-- similar but for display order -->
+            <label asp-for="DisplayOrder"></label>
+            <input asp-for="DisplayOrder" disabled class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-danger" style="width:150px">
+            Delete
+        </button>
+        <a asp-controller="Category" asp-action="Index" class="btn btn-secondary" style="width:150px">
+            Back to List
+        </a>
+    </div>
+</form>
+
+<!-- client side validation from built in partial.  Stops page from refreshing when validating -->
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+
