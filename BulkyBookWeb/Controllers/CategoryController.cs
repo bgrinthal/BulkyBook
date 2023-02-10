@@ -47,7 +47,7 @@ namespace BulkyBookWeb.Controllers
                 // connects to db, and adds category object
                 _db.Categories.Add(obj);
                 _db.SaveChanges();
-                TempData["success"] = "Category created successfully";
+                TempData["success"] = obj.Name + " category created successfully";
                 // redirects to Index method in category controller
                 return RedirectToAction("Index");
             }
@@ -92,7 +92,7 @@ namespace BulkyBookWeb.Controllers
                 _db.Categories.Update(obj);
                 _db.SaveChanges();
                 // Stores data for only 1 request.  Once refreshed, it's gone.  Using for simple notification system
-                TempData["success"] = "Category updated successfully";
+                TempData["success"] = obj.Name + " category updated successfully";
                 // redirects to Index method in category controller
                 return RedirectToAction("Index");
             }
@@ -132,7 +132,7 @@ namespace BulkyBookWeb.Controllers
             // connects to db, and adds category object
             _db.Categories.Remove(obj);
             _db.SaveChanges();
-            TempData["success"] = "Category deleted successfully";
+            TempData["success"] = obj.Name + " category deleted successfully";
             // redirects to Index method in category controller
             return RedirectToAction("Index");
         }
